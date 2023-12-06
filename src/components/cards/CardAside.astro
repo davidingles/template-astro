@@ -1,0 +1,64 @@
+---
+import IconHome from '@/components/icons/IconHome.astro'
+import IconNosotros from '@/components/icons/IconNosotros.astro'
+import IconServices from '@/components/icons/IconServices.astro'
+import IconContact from '@/components/icons/IconContact.astro'
+import IconCatalogo from '@/components/icons/IconCatalogo.astro'
+import BtnAdelante from '@/components/botones-sliders/BtnAdelante.astro'
+
+interface MenuItem {
+	link: string
+	icon: string
+	title: string
+}
+
+interface Props {
+	menu?: MenuItem[]
+}
+
+const { menu } = Astro.props
+---
+
+{
+	menu &&
+		menu.map((item: MenuItem) => (
+			<div class='bordeRojo rounded-lg h-[66px] flex justify-center items-center my-2'>
+				<a
+					href={item.link}
+					class='flex flex-row flex-1 justify-center items-center'
+				>
+					<div class=' text-xl p-4'>
+						<BtnAdelante menus={item.title} />
+					</div>
+
+					<div class='w-10 mr-4'>
+						{item.icon === 'us' && (
+							<div class='hover:rotate-6  hover:scale-110'>
+								<IconNosotros />
+							</div>
+						)}
+						{item.icon === 'home' && (
+							<div class='hover:rotate-6  hover:scale-110'>
+								<IconHome />
+							</div>
+						)}
+						{item.icon === 'services' && (
+							<div class='hover:rotate-6  hover:scale-110'>
+								<IconServices />
+							</div>
+						)}
+						{item.icon === 'contact' && (
+							<div class='hover:rotate-6  hover:scale-110'>
+								<IconContact />
+							</div>
+						)}
+						{item.icon === 'catalogo' && (
+							<div class='hover:rotate-6  hover:scale-110'>
+								<IconCatalogo />
+							</div>
+						)}
+					</div>
+				</a>
+			</div>
+		))
+}

@@ -1,0 +1,73 @@
+---
+import Logo from '@/components/icons/LogoAuxCompleto.astro'
+import BodyAsideMenu from '@/components/BodyAsideMenu.astro'
+import CardAside from './cards/CardAside.astro'
+
+const menu = [
+	{
+		title: 'Inicio',
+		icon: 'home',
+		link: '/',
+	},
+	{
+		title: 'Nosotros',
+		icon: 'us',
+		link: '/nosotros',
+	},
+	{
+		title: 'Servicios',
+		icon: 'services',
+		link: '/servicios',
+	},
+	{
+		title: 'Contacto',
+		icon: 'contact',
+		link: '/contacto',
+	},
+	{
+		title: 'Catálogo',
+		icon: 'catalogo',
+		link: '/catalogo',
+	},
+]
+---
+
+<div class='asideMenu bordeRojo rounded-lg bg-zinc-900 h-full flex flex-col'>
+	<!--  -->
+	<!--  -->
+	<!-- //!!LOGO DEL ASIDE============ -->
+	<div class='p-4 logo-animation'>
+		<Logo />
+	</div>
+	<style>
+		@keyframes logoFadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		.logo-animation {
+			animation: logoFadeIn 1s ease-in-out;
+		}
+	</style>
+	<!-- //!!LOGO===================== -->
+	<!--  -->
+	<!--  -->
+	<div class='bordeVerde m-2 p-2 flex flex-1 rounded-lg flex-col'>
+		<div class='p-2'>
+			<CardAside menu={menu} />
+		</div>
+		<div class='flex flex-1'>
+			<BodyAsideMenu />
+		</div>
+	</div>
+</div>
+
+<style>
+	:global(.light) .asideMenu {
+		background-color: #f0f0f0;
+		color: #202020;
+	}
+</style>

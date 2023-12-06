@@ -1,0 +1,26 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import BodyIndex from '@/components/BodyIndex.astro'
+import HeaderMenu from '@/components/header/HeaderMenu.astro'
+---
+
+<Layout title='Sobre nosotros'>
+	<!--  -->
+	<!--  -->
+	<!-- //!: body=================================== -->
+	<div
+		class='bodyIndex bordeRojo m-2 p-2 rounded-lg flex justify-center items-center flex-col flex-1'
+	>
+		<BodyIndex client:load />
+	</div>
+	<!-- //!: body=================================== -->
+	<!--  -->
+	<!--  -->
+</Layout>
+
+<style>
+	:global(.light) .bodyIndex {
+		background-color: #f5f5f5;
+		color: black;
+	}
+</style>
